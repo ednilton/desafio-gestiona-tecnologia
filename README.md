@@ -318,7 +318,7 @@ mvn test jacoco:report
 
 ### 👨‍💻 Desenvolvedor
 **Ednilton Curt Rauh**  
-📧 ednilton.rauh@gestao.gov.br | edrauh@gmail.com  
+📧 edrauh@gmail.com  
 🔗 [LinkedIn](https://www.linkedin.com/in/ednilton-rauh-63838a47)  
 🏛️ Ministério de Gestão e Inovação (MGI)
 
