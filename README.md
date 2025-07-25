@@ -320,7 +320,7 @@ mvn test jacoco:report
 **Ednilton Curt Rauh**  
 📧 edrauh@gmail.com  
 🔗 [LinkedIn](https://www.linkedin.com/in/ednilton-rauh-63838a47)  
-🏛️ Ministério de Gestão e Inovação (MGI)
+
 
 ### 🎯 Objetivo do Projeto
 Desafio técnico **"Gestiona Tecnologia"** para vaga de **Desenvolvedor Java/Web Senior** na **Gestionna Consultoria** para cliente **Eicon**.
