@@ -41,27 +41,9 @@ Este projeto implementa uma **API RESTful** completa para consulta de créditos 
 
 ---
 
-## 🏗️ Arquitetura
-
-```mermaid
-graph TB
-    A[Frontend Angular] --> B[API Gateway/Load Balancer]
-    B --> C[Spring Boot API]
-    C --> D[PostgreSQL Database]
-    C --> E[Kafka Message Broker]
-    E --> F[Audit Service]
-    
-    subgraph "Container Ecosystem"
-        C
-        D
-        E
-        F
-    end
-```
-
 ### 🎨 Padrões Implementados
 
-- **🏛️ MVC (Model-View-Controller)**: Separação clara de responsabilidades
+- **🏛️ MVC (Model-View-Controller)**: Separação clara de responsabilidades, aplicação de conceitos S.O.L.I.D de arquitetura
 - **📚 Repository Pattern**: Abstração da camada de dados
 - **🏭 Factory Pattern**: Criação de objetos especializados
 - **🔒 Singleton Pattern**: Gerenciamento de configurações

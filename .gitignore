@@ -1,0 +1,8 @@
+*.class
+/target
+/node_modules
+/dist
+
+.idea/*
+/frontend/
+/backend/
