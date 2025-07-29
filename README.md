@@ -2,319 +2,125 @@
 
 [![Java](https://img.shields.io/badge/Java-8+-orange.svg)](https://openjdk.java.net/projects/jdk8/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.7.x-brightgreen.svg)](https://spring.io/projects/spring-boot)
-[![Angular](https://img.shields.io/badge/Angular-15-red.svg)](https://angular.io/)
+[![Angular](https://img.shields.io/badge/Angular-19-red.svg)](https://angular.io/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13-blue.svg)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/Docker-Enabled-blue.svg)](https://www.docker.com/)
 [![Kafka](https://img.shields.io/badge/Apache%20Kafka-Messaging-orange.svg)](https://kafka.apache.org/)
 
-> Sistema completo para consulta de créditos constituídos (ISSQN) com arquitetura moderna e boas práticas de desenvolvimento.
+> Sistema completo para consulta de créditos constituídos (ISSQN) com arquitetura moderna, cobertura de testes, mensageria e containerização com Docker.
 
 ---
 
 ## 📋 Índice
 
-- [🎯 Visão Geral](#-visão-geral)
-- [🏗️ Arquitetura](#️-arquitetura)
-- [🚀 Estratégia de Desenvolvimento](#-estratégia-de-desenvolvimento)
-- [🛠️ Tecnologias](#️-tecnologias)
-- [📦 Estrutura do Projeto](#-estrutura-do-projeto)
-- [🔧 Setup e Execução](#-setup-e-execução)
-- [📊 Endpoints da API](#-endpoints-da-api)
-- [🧪 Testes](#-testes)
-- [📚 Documentação](#-documentação)
-- [🤝 Contribuição](#-contribuição)
+* [🎯 Visão Geral](#-visão-geral)
+* [📦 Estrutura do Projeto](#-estrutura-do-projeto)
+* [🗃️ Componentes Dockerizados](#️-componentes-dockerizados)
+* [🔧 Setup e Execução](#-setup-e-execução)
+* [📚 Documentação](#-documentação)
+* [🔗 Repositórios Relacionados](#-repositórios-relacionados)
+* [👨‍💻 Desenvolvedor](#-desenvolvedor)
 
 ---
 
 ## 🎯 Visão Geral
 
-Este projeto implementa uma **API RESTful** completa para consulta de créditos constituídos de ISSQN, desenvolvida como parte de um desafio técnico. O sistema permite consultar créditos por número de NFS-e ou número do crédito, fornecendo informações detalhadas sobre valores, alíquotas e dados fiscais.
+Este projeto implementa uma arquitetura full stack moderna com backend Java 8 + Spring Boot e frontend Angular 19, integrados via REST e orquestrados com Docker Compose.
 
-### ✨ Funcionalidades Principais
+A proposta é oferecer uma solução completa para consulta de créditos constituídos do ISSQN, contemplando:
 
-- 🔍 **Consulta por NFS-e**: Busca créditos pelo número da Nota Fiscal
-- 📄 **Consulta por Crédito**: Busca detalhes específicos do crédito
-- 📱 **Frontend Responsivo**: Interface Angular moderna e intuitiva
-- 📨 **Mensageria**: Notificações via Kafka para auditoria
-- 🐳 **Containerização**: Deploy completo com Docker
-- ✅ **Testes Automatizados**: Cobertura completa com JUnit/Mockito
-
----
-
-### 🎨 Padrões Implementados
-
-- **🏛️ MVC (Model-View-Controller)**: Separação clara de responsabilidades, aplicação de conceitos S.O.L.I.D de arquitetura
-- **📚 Repository Pattern**: Abstração da camada de dados
-- **🏭 Factory Pattern**: Criação de objetos especializados
-- **🔒 Singleton Pattern**: Gerenciamento de configurações
-- **🧩 DTO Pattern**: Transferência segura de dados
-- **🛡️ Service Layer**: Lógica de negócio isolada
-
----
-
-## 🚀 Estratégia de Desenvolvimento
-
-### 📅 Cronograma de Desenvolvimento (5 Dias)
-
-#### **Dia 1: Setup e Backend Core**
-- ✅ Configuração do projeto Spring Boot 2.7.18
-- ✅ Setup Java 8+ compatível
-- ✅ Modelagem da entidade Crédito (JPA/Hibernate)
-- ✅ Configuração do PostgreSQL 13
-- ✅ Implementação dos repositories
-- ✅ Scripts de criação e população do banco
-
-#### **Dia 2: API REST e Business Logic**
-- ✅ Implementação dos controllers
-- ✅ Services com regras de negócio
-- ✅ DTOs e mapeamentos
-- ✅ Tratamento de exceções
-- ✅ Validações de entrada
-
-#### **Dia 3: Testes e Qualidade**
-- ✅ Testes unitários (JUnit + Mockito)
-- ✅ Testes de integração
-- ✅ Análise de cobertura
-- ✅ Code review e refatoração
-- ✅ Documentação da API (Swagger)
-
-#### **Dia 4: Frontend Angular**
-- ✅ Setup do projeto Angular 15
-- ✅ Configuração Angular Material 15
-- ✅ Componentes de consulta responsivos
-- ✅ Serviços HTTP para integração com API
-- ✅ Layout responsivo (mobile-first)
-- ✅ Tratamento de erros e loading states
-
-#### **Dia 5: Docker, Kafka e Deploy**
-- ✅ Containerização com Docker (Java 8 base image)
-- ✅ Integração com Kafka 2.8 (mensageria de auditoria)
-- ✅ Docker Compose completo (app + db + kafka)
-- ✅ Documentação final e validação
-- ✅ Deploy local e testes de integração end-to-end
-
-## 🎯 **Estratégia de Conformidade com Requisitos**
-
-### ✅ **Requisitos Técnicos 100% Atendidos**
-
-| Requisito PDF | Implementação | Status |
-|---------------|---------------|--------|
-| **Java 8+** | Java 8+ (compatível com 8, 11, 17) | ✅ |
-| **Spring Boot** | Spring Boot 2.7.18 (compatível Java 8) | ✅ |
-| **Spring Data JPA** | Implementado com repositories | ✅ |
-| **Hibernate** | Hibernate 5.6.x (compatível) | ✅ |
-| **PostgreSQL ou MariaDB** | PostgreSQL 13 escolhido | ✅ |
-| **Angular 2+** | Angular 15 (muito acima do mínimo) | ✅ |
-| **Docker** | Containerização completa | ✅ |
-| **Kafka ou Azure Service Bus** | Apache Kafka 2.8 | ✅ |
-| **JUnit, Mockito** | Testes unitários + integração | ✅ |
-| **Padrões (MVC, Repository, etc.)** | Todos implementados | ✅ |
-
-### 🚨 **Evitando Penalizações**
-
-O README foi ajustado para **garantir zero pontos perdidos** por:
-- ❌ Não seguir especificações funcionais → ✅ **100% das specs atendidas**
-- ❌ Não criar componentes solicitados → ✅ **Todos os componentes implementados**  
-- ❌ Não usar tecnologias indicadas → ✅ **Stack exatamente conforme PDF**
-- ❌ Usar versões antigas → ✅ **Versões estáveis e atuais dentro dos requisitos**
-
----
-
-## 🛠️ Tecnologias
-
-### Backend
-- **☕ Java 8+** - Conforme especificação do desafio
-- **🍃 Spring Boot 2.7.18** - Última versão compatível com Java 8
-- **🗃️ Spring Data JPA** - Persistência de dados
-- **🔄 Hibernate 5.6.x** - ORM compatível
-- **🐘 PostgreSQL 13** - Banco de dados estável
-- **📨 Apache Kafka 2.8** - Mensageria
-- **🧪 JUnit 5 + Mockito** - Testes automatizados
-- **📖 SpringDoc OpenAPI** - Documentação da API
-
-### Frontend
-- **🅰️ Angular 15** - Framework frontend (versão estável e atual)
-- **📱 Angular Material 15** - Componentes UI
-- **💅 Bootstrap 5** - Layout responsivo
-- **📡 HttpClient** - Comunicação HTTP
-- **🎨 SCSS** - Estilização avançada
-
-### DevOps & Tools
-- **🐳 Docker + Docker Compose** - Containerização
-- **📦 Maven** - Gerenciamento de dependências
-- **🔧 npm** - Gerenciador de pacotes frontend
-- **📊 SonarQube** - Análise de código (opcional)
-- **🚀 GitHub Actions** - CI/CD (planejado)
+* API RESTful com documentação Swagger
+* Frontend responsivo e desacoplado
+* Banco PostgreSQL + scripts versionados
+* Kafka para eventos de auditoria
+* Ambiente completo com containers reutilizáveis
 
 ---
 
 ## 📦 Estrutura do Projeto
 
 ```
-api-consulta-creditos/
-├── 📁 backend/                          # Spring Boot API
-│   ├── 📁 src/main/java/com/creditos/
-│   │   ├── 📁 config/                   # Configurações
-│   │   ├── 📁 controller/               # REST Controllers
-│   │   ├── 📁 service/                  # Business Logic
-│   │   ├── 📁 repository/               # Data Access
-│   │   ├── 📁 entity/                   # JPA Entities
-│   │   ├── 📁 dto/                      # Data Transfer Objects
-│   │   ├── 📁 exception/                # Exception Handling
-│   │   └── 📁 messaging/                # Kafka Integration
-│   ├── 📁 src/test/                     # Testes automatizados
-│   ├── 📄 pom.xml                       # Dependencies
-│   └── 📄 Dockerfile                    # Container config
-├── 📁 frontend/                         # Angular App
-│   ├── 📁 src/app/
-│   │   ├── 📁 components/               # Angular Components
-│   │   ├── 📁 services/                 # HTTP Services
-│   │   ├── 📁 models/                   # TypeScript Models
-│   │   ├── 📁 shared/                   # Shared Modules
-│   │   └── 📁 pages/                    # Page Components
-│   ├── 📄 package.json                  # Dependencies
-│   └── 📄 Dockerfile                    # Container config
+desafio-gestiona-tecnologia/
+├── 📁 backend/                        # API REST - Spring Boot
+│   └── Dockerfile                    # Docker do backend
+├── 📁 frontend/                      # Aplicação Angular 19
+│   └── Dockerfile                    # Docker do frontend
 ├── 📁 database/
-│   ├── 📄 init.sql                      # Schema + Data
-│   └── 📄 docker-compose.yml            # DB Container
+│   └── init.sql                      # Criação e carga inicial do banco
 ├── 📁 kafka/
-│   └── 📄 docker-compose.kafka.yml      # Kafka Setup
-├── 📄 docker-compose.yml                # Full Stack
-├── 📄 README.md                         # Este arquivo
-└── 📄 .gitignore                        # Git ignore rules
+│   └── docker-compose.kafka.yml     # Setup Kafka + Zookeeper
+├── docker-compose.yml               # Orquestração completa
+├── .gitignore
+└── README.md                        # Este arquivo
 ```
+
+---
+
+## 🗃️ Componentes Dockerizados
+
+| Serviço     | Descrição                             | Porta |
+| ----------- | ------------------------------------- | ----- |
+| PostgreSQL  | Banco de dados relacional             | 5432  |
+| API Backend | Spring Boot + Java 8                  | 8080  |
+| Frontend    | Angular 19 (ng serve ou SSR opcional) | 4200  |
+| Kafka       | Mensageria de auditoria               | 9092  |
+| Zookeeper   | Dependência do Kafka                  | 2181  |
 
 ---
 
 ## 🔧 Setup e Execução
 
-### 🚀 Execução Rápida (Docker)
+### 🐳 Subir o ambiente completo
+
+Pré-requisitos:
+
+* Docker e Docker Compose instalados
 
 ```bash
-# Clone o repositório
-git clone https://github.com/edniltonrauh/desafio-gestiona-tecnologia.git
+git clone https://github.com/ednilton/desafio-gestiona-tecnologia.git
 cd desafio-gestiona-tecnologia
-
-# Execute todo o stack
 docker-compose up -d
-
-# Aguarde alguns segundos e acesse:
-# 🌐 Frontend: http://localhost:4200
-# 🔗 API: http://localhost:8080
-# 📖 Swagger: http://localhost:8080/swagger-ui.html
 ```
 
-### 🛠️ Desenvolvimento Local
+Acesse:
 
-#### Pré-requisitos
-- ☕ Java 8+ (JDK 8, 11 ou 17)
-- 🐘 PostgreSQL 13+
-- 📦 Node.js 16+
-- 🐳 Docker (opcional)
-- ☕ Maven 3.6+
+* 🔗 API: [http://localhost:8080](http://localhost:8080)
+* 📖 Swagger: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+* 🌐 Frontend: [http://localhost:4200](http://localhost:4200)
 
-#### Backend
+### 📤 Derrubar os containers
+
 ```bash
-cd backend
-mvn clean install
-mvn spring-boot:run
+docker-compose down
 ```
-
-#### Frontend
-```bash
-cd frontend
-npm install
-ng serve
-```
-
----
-
-## 📊 Endpoints da API
-
-### 🔍 Consulta por NFS-e
-```http
-GET /api/creditos/{numeroNfse}
-```
-**Exemplo**: `GET /api/creditos/7891011`
-
-### 📄 Consulta por Crédito
-```http
-GET /api/creditos/credito/{numeroCredito}
-```
-**Exemplo**: `GET /api/creditos/credito/123456`
-
-### 📖 Documentação Completa
-- **Swagger UI**: http://localhost:8080/swagger-ui.html
-- **OpenAPI JSON**: http://localhost:8080/v3/api-docs
-
----
-
-## 🧪 Testes
-
-### ▶️ Executar Testes
-```bash
-# Testes unitários
-mvn test
-
-# Testes com cobertura
-mvn test jacoco:report
-
-# Relatório: target/site/jacoco/index.html
-```
-
-### 📊 Cobertura Esperada
-- **Controllers**: 95%+
-- **Services**: 90%+
-- **Repositories**: 85%+
-- **Overall**: 90%+
 
 ---
 
 ## 📚 Documentação
 
-### 📖 Recursos Disponíveis
-- **API Documentation**: Swagger UI integrado
-- **Code Documentation**: Javadoc inline
-- **Architecture Decision Records**: `docs/adr/`
-- **Database Schema**: `docs/database/`
-- **Deployment Guide**: `docs/deployment/`
+* Swagger UI disponível via backend
+* Scripts SQL em `database/init.sql`
+* Setup de mensageria em `kafka/docker-compose.kafka.yml`
+* Deploy local rápido com `docker-compose`
 
 ---
 
-## 🎯 Critérios de Avaliação Atendidos
+## 🔗 Repositórios Relacionados
 
-| Critério | Status | Implementação |
-|----------|--------|---------------|
-| **Código Limpo** | ✅ | SOLID, Clean Code, Padrões |
-| **Qualidade** | ✅ | SonarQube, Code Review |
-| **Funcionamento** | ✅ | Endpoints funcionais |
-| **Testes** | ✅ | JUnit, Mockito, 90%+ cobertura |
-| **Git** | ✅ | Commits organizados, branches |
-| **Documentação** | ✅ | README, Swagger, Javadoc |
-| **Docker** | ✅ | Containerização completa |
-| **Kafka** | ✅ | Mensageria implementada |
+| Módulo              | Repositório                                                                                  |
+| ------------------- | -------------------------------------------------------------------------------------------- |
+| 📚 Infraestrutura   | [desafio-gestiona-tecnologia](https://github.com/ednilton/desafio-gestiona-tecnologia)       |
+| 🔙 Backend API      | [api-consulta-creditos-backend](https://github.com/ednilton/api-consulta-creditos-backend)   |
+| 🔜 Frontend Angular | [api-consulta-creditos-frontend](https://github.com/ednilton/api-consulta-creditos-frontend) |
 
 ---
 
-## 🤝 Contribuição
+## 👨‍💻 Desenvolvedor
 
-### 👨‍💻 Desenvolvedor
-**Ednilton Curt Rauh**  
-📧 edrauh@gmail.com  
-🔗 [LinkedIn](https://www.linkedin.com/in/ednilton-rauh-63838a47)  
-
-
-### 🎯 Objetivo do Projeto
-Desafio técnico **"Gestiona Tecnologia"** para vaga de **Desenvolvedor Java/Web Senior** na **Gestionna Consultoria** para cliente **Eicon**.
+**Ednilton Curt Rauh**
+📧 [edrauh@gmail.com](mailto:edrauh@gmail.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/ednilton-rauh-63838a47)
 
 ---
 
-## 📜 Licença
-
-Este projeto foi desenvolvido como parte de um processo seletivo e está disponível para fins educacionais e de avaliação técnica.
-
----
-
-**⭐ Se este projeto foi útil, considere dar uma estrela no repositório!**
-
-**🚀 Desenvolvido com dedicação e boas práticas de engenharia de software.**
+Este repositório representa o núcleo de execução e integração do projeto, centralizando os componentes essenciais para o funcionamento local e a entrega completa do desafio técnico.
