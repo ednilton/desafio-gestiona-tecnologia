@@ -13,7 +13,8 @@ services:
       - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ${INIT_SQL:-./database/init.sql}:/docker-entrypoint-initdb.d/init.sql
+      #- ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - creditos-network
     healthcheck:
@@ -22,6 +23,29 @@ services:
       timeout: 5s
       retries: 5
     restart: unless-stopped
+
+  # PostgreSQL de Teste
+  postgres-test:
+    image: postgres:13-alpine
+    container_name: creditos-postgres-test
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB_TEST}
+      POSTGRES_USER: ${POSTGRES_USER_TEST}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD_TEST}
+    ports:
+      - "${POSTGRES_PORT_TEST:-5433}:5432"
+    volumes:
+      - ${INIT_SQL_TEST:-./database/init-test.sql}:/docker-entrypoint-initdb.d/init-test.sql
+    networks:
+      - creditos-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER_TEST} -d ${POSTGRES_DB_TEST}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+
 
   # Zookeeper
   zookeeper:
@@ -108,6 +132,11 @@ services:
     networks:
       - creditos-network
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
     profiles:
       - full-stack
 
